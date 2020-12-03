@@ -5,7 +5,7 @@ const copyFile = (src, dst) => {
 
     return fsPromises.readFile(src, 'utf-8')
         .then(data => {
-            fsPromises.writeFile(dst, data);
+            return fsPromises.writeFile(dst, data);
         })
         .catch(err => {
             console.log(err)
