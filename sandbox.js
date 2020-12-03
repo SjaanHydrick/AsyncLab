@@ -22,33 +22,33 @@ const fetch = require('node-fetch');
 //     })
 //     .then(() => {console.log('DONE!')});
 
-// const fetchQuotes = () => {
-//     return fetch('http://futuramaapi.herokuapp.com/api/quotes/1')
-//         .then(res => {
-//             return res.json();
-//         })
-//         .then(json => {
-//             console.log(json.map(quote => quote.quote))
-//             return json.map(quote => quote.quote)
-//         })
-// }
-
-const fetchCharacters = () => {
-    return fetch('https://rickandmortyapi.com/api/character/')
+const fetchQuotes = () => {
+    return fetch('http://futuramaapi.herokuapp.com/api/quotes/1')
         .then(res => {
             return res.json();
         })
-        .then(({ results }) => 
-        console.log(results.map(({ name }) => name))
-        );
-};
+        .then(json => {
+            console.log(json.map(quote => quote.quote))
+            return json.map(quote => quote.quote)
+        })
+}
 
-// Promise.all([
-//     fetch('http://futuramaapi.herokuapp.com/api/quotes/1'),
-//     fetch('https://rickandmortyapi.com/api/character/')
-// ])
-//     .then(([resChar]) => {
-//         return resChar.json();
-//     })
-//     .then(({ results }) => 
-//     console.log(results.map(({ origin }) => origin.name)));
+// const fetchCharacters = () => {
+//     return fetch('https://rickandmortyapi.com/api/character/')
+//         .then(res => {
+//             return res.json();
+//         })
+//         .then(({ results }) => {
+//         return results.map(({ name }) => name)}
+//         );
+// };
+
+Promise.all([
+    fetch('http://futuramaapi.herokuapp.com/api/quotes/1'),
+    fetch('https://rickandmortyapi.com/api/character/')
+])
+    .then(([resChar]) => {
+        return resChar.json();
+    })
+    .then(({ results }) => 
+    console.log(results.map(({ origin }) => origin.name)));
