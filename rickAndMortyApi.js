@@ -15,8 +15,6 @@ const getManyCharacters = async (arr) => {
     return await Promise.all(promiseArr);
 }
 
-getManyCharacters([2, 3, 1]);
-
 module.exports = {
     getCharacter,
     getManyCharacters
